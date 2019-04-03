@@ -8,12 +8,10 @@ import "./index.scss";
 const App = () => {
   return (
     <BrowserRouter>
-      <div class="container">
-        <Switch>
-          <Redirect exact path="/" to="/popular" />
-          <Route render={DefaultRoute} />
-        </Switch>
-      </div>
+      <Switch>
+        <Redirect exact path="/" to="/popular" />
+        <Route render={DefaultRoute} />
+      </Switch>
     </BrowserRouter>
   );
 }
