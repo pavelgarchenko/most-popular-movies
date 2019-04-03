@@ -27,7 +27,7 @@ describe('DefaultRoute Component', () => {
     expect(wrapper.length).toBe(1);
   });
     
-  it('Should say "Wrong URI"', () => {
+  it('Should say "Page Not Found"', () => {
     const wrapper = findByTestAttr(component, "DefaultRoute");
     console.log(wrapper.text());
     expect(wrapper.text()).toBe("Page Not Found");
