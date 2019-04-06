@@ -1,0 +1,101 @@
+.MovieDetail {
+
+  header {
+    background-color: #009688;
+    color: #fff;
+    padding: 24px;
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.5);
+
+    h1 {
+      font-family: Helvetica;
+      font-size: 32px;
+      font-weight: 300;
+      text-align: left;
+      color: #ffffff;
+      margin: 0;
+      vertical-align: middle;
+    }
+  }
+
+  main {
+    padding: 24px;
+
+    .mainDescription {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: flex-start;
+      font-size: 24px;
+    }
+    
+    .rightWrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      margin-left: 17px;
+
+      span {
+        padding-bottom: 5px;
+      }
+    }
+
+    .releaseDate {
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    .movieLength {
+      font-size: 24px;
+      font-style: oblique;
+    }
+
+    .voteAverage {
+      font-size: 16px;
+      color: #000000;
+      margin: 20px 0;
+    }
+
+    button.favorite {
+      width: 112px;
+      height: 48px;
+      border: solid 1px #6fcac2;
+      background-color: #86e4db;
+      font-size: 12px;
+      text-align: center;
+      color: #757373;
+      text-transform: uppercase;
+    }
+
+    .overview {
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      color: #747474;
+      letter-spacing: 0.1px;
+      margin: 10px 0;
+    }
+  }
+
+  .trailersHeader {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0.4px;
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .MovieDetail {
+    .leftWrapper {
+      img {
+        width: 40vw;
+      }
+    }
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .MovieDetail {
+    .leftWrapper {
+      img {
+        width: 30vw;
+      }
+    }
+  }
+}

@@ -1,11 +1,10 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import MovieDetail from './MovieDetail';
+import MovieList from './MovieList';
 
 const setup = (props={}) => {
-  const match = { params: { id: 6 } }
-  const component = shallow(<MovieDetail {...props} match={ match } />);
+  const component = shallow(<MovieList {...props} />);
   return component;
 };
 
@@ -24,12 +23,7 @@ describe('PopularMovies Component', () => {
   })
     
   it('Should render without errors', () => {
-    const wrapper = findByTestAttr(component, "MovieDetail");
+    const wrapper = findByTestAttr(component, "MovieList");
     expect(wrapper.length).toBe(1);
-  });
-    
-  it('Should render correct id', () => {
-    const wrapper = findByTestAttr(component, "MovieDetail");
-    expect(wrapper.text().includes("Movie Detail 6")).toBe(true);
   });
 });

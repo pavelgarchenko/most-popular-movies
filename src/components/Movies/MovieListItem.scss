@@ -1,0 +1,20 @@
+@media screen and (orientation: portrait) {
+  .MovieListItem {
+    height: 75vw;
+    
+    img {
+      width: 50vw;
+    }
+  }
+}
+
+/* Landscape */
+@media screen and (orientation: landscape) {
+  .MovieListItem {
+    height: 37vw;
+
+    img {
+      width: 25vw;
+    }
+  }
+}

@@ -8,12 +8,10 @@ const setup = (props={}) => {
   return component;
 };
 
-
 const findByTestAttr = (component, attr) => {
   const wrapper = component.find(`[data-test="${attr}"]`);
   return wrapper;
 };
-
 
 describe('DefaultRoute Component', () => {
   
@@ -29,7 +27,6 @@ describe('DefaultRoute Component', () => {
     
   it('Should say "Page Not Found"', () => {
     const wrapper = findByTestAttr(component, "DefaultRoute");
-    console.log(wrapper.text());
     expect(wrapper.text()).toBe("Page Not Found");
   });
 });
