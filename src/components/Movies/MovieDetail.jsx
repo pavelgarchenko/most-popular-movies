@@ -49,7 +49,7 @@ class MovieDetail extends React.Component {
               </div>
               <div className="rightWrapper">
                 <span className="releaseDate">{data.release_date.split('-')[0]}</span>
-                <span className="movieLength">120 min</span>
+                <span className="movieLength">{data.runtime ? data.runtime + " min" : ''}</span>
                 <span className="voteAverage">{data.vote_average}/10</span>
                 <button 
                   className="favorite" 
