@@ -35,33 +35,6 @@ const initialMoviesById = {};
 const initialFavoriteMovies = [];
 const initialPath = "/";
 
-const movieListData = (state = initialMovieListData, action) => {
-  switch (action.type) {
-    case FETCH_MOVIE_LIST_STARTED:
-      return {
-        fetching: true,
-        fetched: false,
-        movies: [],
-        error: null
-      };
-    case FETCH_MOVIE_LIST_ERROR:
-      return {
-        ...state,
-        fetching: false,
-        error: action.error,
-      };
-    case FETCH_MOVIE_LIST_SUCCESS:
-      return {
-        fetching: false,
-        fetched: true,
-        movies: action.payload.results,
-      };
-    default: {
-      return state;
-    }
-  }
-};
-
 const popularListData = (state = initialMovieListData, action) => {
   switch (action.type) {
     case FETCH_POPULAR_LIST_STARTED:
@@ -174,10 +147,6 @@ const menuIsHidden = (state = true, action) => {
   switch (action.type) {
     case TOGGLE_MENU:
       return !state;
-    case FETCH_MOVIE_LIST_STARTED:
-      return true;
-    case FETCH_MOVIE_DETAIL_STARTED:
-      return true;
     default:
       return state;
   }
@@ -193,7 +162,6 @@ const storedMovieListPath = (state = initialPath, action) => {
 }
 
 const reducer = combineReducers({
-  movieListData,
   popularListData,
   topRatedListData,
   movieDetailData,
