@@ -1,0 +1,17 @@
+.trailer {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+
+  .trailerTitle {
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    margin: 29px 10px;
+  }
+  
+  .playArrow {
+    font-size: 24px;
+    color: #000000;
+    margin: 24px 10px 24px 24px;
+  }
+}

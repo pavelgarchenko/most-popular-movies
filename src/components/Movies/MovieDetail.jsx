@@ -2,6 +2,7 @@ import React from "react";
 
 import NavContainer from "../Nav/NavContainer";
 import Spinner from '../Spinner/Spinner';
+import Trailer from "./Trailer";
 import Picture from "./Picture";
 
 import "./MovieDetail.scss";
@@ -45,9 +46,9 @@ class MovieDetail extends React.Component {
             <div className="overview">{data.overview}</div>
             <hr/>
             <h2 className="trailersHeader">Trailers:</h2>
-            Trailer 1
+            <Trailer />
             <hr/>
-            Trailer 1
+            <Trailer />
           </main>
         </div>
       )
