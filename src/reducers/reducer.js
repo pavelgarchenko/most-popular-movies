@@ -86,19 +86,20 @@ const topRatedListData = (state = initialMovieListData, action) => {
   }
 }
 
+
 const moviesById = (state = initialMoviesById, action) => {
   switch (action.type) {
     case FETCH_POPULAR_LIST_SUCCESS:
-      var list = action.payload.results;
       var newState = {...state};
-      for( var i = 0; i < list.length; i++) {
+      var list = action.payload.results;
+      for(var i = 0; i < list.length; i++) {
         newState[list[i].id] = list[i]
       };
       return newState;
     case FETCH_TOP_RATED_LIST_SUCCESS:
-      var list = action.payload.results;
       var newState = {...state};
-      for( var i = 0; i < list.length; i++) {
+      var list = action.payload.results;
+      for(let i = 0; i < list.length; i++) {
         newState[list[i].id] = list[i]
       };
       return newState;
