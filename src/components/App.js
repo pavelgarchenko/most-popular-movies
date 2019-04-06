@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import MovieDetail from './Movies/MovieDetail';
+import MovieDetailContainer from './Movies/MovieDetailContainer';
 import MovieList from './Movies/MovieList';
 import DefaultRoute from './DefaultRoute/DefaultRoute';
 
@@ -14,7 +14,7 @@ const App = () => {
         <Redirect exact path="/" to="/movie/popular" />
         <Route path="/movie/popular" component={MovieList} />
         <Route path="/movie/top_rated" component={MovieList} />
-        <Route path="/movie/:id" component={MovieDetail} />
+        <Route path="/movie/:id" component={MovieDetailContainer} />
         <Route render={DefaultRoute} />
       </Switch>
     </BrowserRouter>

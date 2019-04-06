@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Picture from "./Picture";
 
 import "./MovieListItem.scss";
 
@@ -7,9 +8,7 @@ import "./MovieListItem.scss";
 const MovieListItem = (props) => {
   return (
     <Link className="MovieListItem" to={"/movie/" + props.id}>
-      <picture className="poster">
-      <img src={"https://image.tmdb.org/t/p/w185/" + props.poster_path} />
-      </picture>
+      <Picture poster_path={props.poster_path}/>
     </Link>  
   )
 }
