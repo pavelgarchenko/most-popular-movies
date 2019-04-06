@@ -4,6 +4,7 @@ import {
   FETCH_MOVIE_DETAIL_ERROR,
   FETCH_MOVIE_DETAIL_SUCCESS,
   
+  ADD_TO_FAVORITES,
   TOGGLE_MENU,
 } from "../constants/constants";
 
@@ -13,6 +14,8 @@ const initialDetailData = {
   payload: {},
   error: null,
 };
+
+const initialFavoriteMovies = [];
 
 const movieDetailData = (state = initialDetailData, action) => {
   switch (action.type) {
@@ -41,6 +44,15 @@ const movieDetailData = (state = initialDetailData, action) => {
   }
 }
 
+const favoriteMovies = (state = initialFavoriteMovies, action) => {
+  switch (action.type) {
+    case ADD_TO_FAVORITES:
+      return [...new Set(state).add(action.id)];
+    default:
+      return state;
+  }
+}
+
 const menuIsHidden = (state = true, action) => {
   switch (action.type) {
     case TOGGLE_MENU:
@@ -52,6 +64,7 @@ const menuIsHidden = (state = true, action) => {
 
 const reducer = combineReducers({
   movieDetailData,
+  favoriteMovies,
   menuIsHidden,
 });
 

@@ -38,7 +38,10 @@ class MovieDetail extends React.Component {
                 <span className="releaseDate">{data.release_date.split('-')[0]}</span>
                 <span className="movieLength">120 min</span>
                 <span className="voteAverage">{data.vote_average}/10</span>
-                <button className="favorite">
+                <button 
+                  className="favorite" 
+                  onClick={() => this.props.onAddToFavorites(data.id)}
+                >
                   Mark as favorite
                 </button>
               </div>

@@ -5,6 +5,7 @@ import {
   FETCH_MOVIE_DETAIL_STARTED,
   FETCH_MOVIE_DETAIL_ERROR,
   FETCH_MOVIE_DETAIL_SUCCESS,
+  ADD_TO_FAVORITES,
 } from "../constants/constants";
 
 
@@ -41,5 +42,12 @@ export const fetchMovieDetailFailure = (error) => {
   return {
     type: FETCH_MOVIE_DETAIL_ERROR,
     error: error
+  }
+};
+
+export const addToFavorites = (id) => {
+  return {
+    type: ADD_TO_FAVORITES,
+    id: id,
   }
 };
