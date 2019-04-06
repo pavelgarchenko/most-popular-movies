@@ -9,13 +9,26 @@ import "./MovieDetail.scss";
 
 
 class MovieDetail extends React.Component {
+  constructor(props) {
+    super(props)
+    this.getMoviesById = this.getMoviesById.bind(this);
+  }
+
   componentWillMount() {
-    this.props.onFetchMovieDetail(this.props.match.params.id);
+    if (!this.getMoviesById()) {
+      this.props.onFetchMovieDetail(this.props.match.params.id);
+    } 
+  }
+  
+  getMoviesById() {
+    return this.props.moviesById[this.props.match.params.id];
   }
   
   render() {
     const data = 
-      this.props.fetched ? this.props.movieDetail : null;
+      this.getMoviesById() ? this.getMoviesById()
+      : this.props.fetched ? this.props.movieDetail
+      : null;
 
     const content = 
       this.props.fetching ? <Spinner />
@@ -32,7 +45,7 @@ class MovieDetail extends React.Component {
           <main>
             <div className="mainDescription">
               <div className="leftWrapper">
-              <Picture poster_path={data.poster_path}/>
+                <Picture poster_path={data.poster_path}/>
               </div>
               <div className="rightWrapper">
                 <span className="releaseDate">{data.release_date.split('-')[0]}</span>
