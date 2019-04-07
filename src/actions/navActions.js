@@ -1,9 +1,9 @@
-import { TOGGLE_MENU } from "../constants/constants.js";
+import { TOGGLE_MENU } from "../constants/constants";
 
 
-export const toggleMenu = () => {
+export const toggleMenu = (hidden = true) => {
   return {
     type: TOGGLE_MENU,
-    hidden: true
+    hidden
   }
 };
