@@ -62,6 +62,10 @@
       text-align: center;
       color: #757373;
       text-transform: uppercase;
+
+      &:active{
+        filter: saturate(150%);
+      }
     }
 
     .overview {
