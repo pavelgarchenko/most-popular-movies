@@ -1,9 +1,9 @@
 import React from "react";
 
-import NavContainer from "../Nav/NavContainer";
-import Spinner from '../Spinner/Spinner';
-import Trailer from "./Trailer";
-import Picture from "./Picture";
+import NavContainer from "../../Nav/NavContainer";
+import Spinner from '../../Spinner/Spinner';
+import Trailer from "../../Trailer/Trailer";
+import Picture from "../../Picture/Picture"
 
 import "./MovieDetail.scss";
 
@@ -95,7 +95,7 @@ class MovieDetail extends React.Component {
             </div>
             <div className="overview">{data.overview}</div>
             <hr/>
-            <h2 className="trailersHeader">Trailers:</h2>
+            <h2 className="trailersHeader">Trailer:</h2>
             {trailers}
           </main>
         </div>

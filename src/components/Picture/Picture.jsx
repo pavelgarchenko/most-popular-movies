@@ -21,7 +21,7 @@ const Picture = (props) => {
   });
 
   return (
-    <picture>
+    <picture data-test="Picture">
       {sources}
       <img srcSet={srcSets[1]} alt=""/>
     </picture>

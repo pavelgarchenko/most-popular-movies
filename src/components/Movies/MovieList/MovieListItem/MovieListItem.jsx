@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Picture from "./Picture";
+import Picture from "../../../Picture/Picture";
 
 import "./MovieListItem.scss";
 

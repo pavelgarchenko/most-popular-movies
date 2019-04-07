@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 
 import MovieList from "./MovieList";
-import { fetchTopRatedList } from "../../actions/topRatedListActions";
-import { storeMovieListPath } from "../../actions/movieListActions";
-import { PAGE_TITLES } from "../../constants/constants"
+import { fetchTopRatedList } from "../../../actions/topRatedListActions";
+import { storeMovieListPath } from "../../../actions/movieListActions";
+import { PAGE_TITLES } from "../../../constants/constants"
 
 
 const mapStateToProps = state => {

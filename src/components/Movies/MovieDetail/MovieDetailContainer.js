@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 
 import MovieDetail from "./MovieDetail";
-import { fetchMovieDetail, getMovieDetailById, addToFavorites } from "../../actions/movieDetailActions";
-import { fetchMovieVideos, getMovieVideosById } from "../../actions/movieVideosActions";
-import { PAGE_TITLES } from "../../constants/constants"
+import { fetchMovieDetail, getMovieDetailById, addToFavorites } from "../../../actions/movieDetailActions";
+import { fetchMovieVideos, getMovieVideosById } from "../../../actions/movieVideosActions";
+import { PAGE_TITLES } from "../../../constants/constants"
 
 
 const mapStateToProps = state => {

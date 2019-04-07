@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 
-import MovieDetailContainer from './Movies/MovieDetailContainer';
-import PopularListContainer from './Movies/PopularListContainer';
-import TopRatedListContainer from './Movies/TopRatedListContainer';
+import MovieDetailContainer from './Movies/MovieDetail/MovieDetailContainer';
+import PopularListContainer from './Movies/MovieList/PopularListContainer';
+import TopRatedListContainer from './Movies/MovieList/TopRatedListContainer';
 import DefaultRoute from './DefaultRoute/DefaultRoute';
 
 import "./style.scss";
