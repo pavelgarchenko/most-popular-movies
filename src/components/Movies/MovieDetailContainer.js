@@ -1,15 +1,18 @@
 import { connect } from "react-redux";
 
 import MovieDetail from "./MovieDetail";
-import { fetchMovieDetail, addToFavorites } from "../../actions/movieDetailActions";
+import { fetchMovieDetail, getMovieDetailById, addToFavorites } from "../../actions/movieDetailActions";
+import { fetchMovieVideos, getMovieVideosById } from "../../actions/movieVideosActions";
 import { PAGE_TITLES } from "../../constants/constants"
 
 
 const mapStateToProps = state => {
   return {
     pageTitle: PAGE_TITLES.movieDetail,
-    movieDetail: state.movieDetailData.payload,
+    movieDetailData: state.movieDetailData,
+    movieVideosData: state.movieVideosData,
     moviesById: state.moviesById,
+    videosById: state.videosById,
     fetched: state.movieDetailData.fetched,
     fetching: state.movieDetailData.fetching,
     error: state.movieDetailData.error,
@@ -21,6 +24,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchMovieDetail: (id) => {
       dispatch(fetchMovieDetail(id));
+      dispatch(fetchMovieVideos(id));
     },
     onAddToFavorites: (id) => {
       dispatch(addToFavorites(id));

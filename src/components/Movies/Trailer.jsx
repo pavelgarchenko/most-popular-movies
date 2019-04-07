@@ -1,19 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./Trailer.scss";
 
 
-const Trailer =() => {
+const Trailer =(props) => {
   return (
-    <div className="trailer">
-      <Link to="#">
-        <FontAwesomeIcon icon={faPlay} className="playArrow" />
-      </Link>
-      <span className="trailerTitle">Trailer 1</span>
-    </div>
+    <React.Fragment>
+      <div className="trailer">
+        <a href={"https://www.youtube.com/watch?v=" + props.video_key} target="_blank">
+          <FontAwesomeIcon icon={faPlay} className="playArrow" />
+        </a>
+        <span className="trailerTitle">{props.video_name}</span>
+      </div>
+      <hr />
+    </React.Fragment>
   )  
 }
 

@@ -11,6 +11,10 @@ import {
   FETCH_MOVIE_DETAIL_STARTED,
   FETCH_MOVIE_DETAIL_ERROR,
   FETCH_MOVIE_DETAIL_SUCCESS,
+
+  FETCH_MOVIE_VIDEOS_STARTED,
+  FETCH_MOVIE_VIDEOS_ERROR,
+  FETCH_MOVIE_VIDEOS_SUCCESS,
   
   STORE_MOVIE_LIST_PATH,
   ADD_TO_FAVORITES,
@@ -31,7 +35,15 @@ const initialDetailData = {
   error: null,
 };
 
+const initialVideosData = {
+  fetching: false,
+  fetched: false,
+  payload: {},
+  error: null,
+};
+
 const initialMoviesById = {};
+const initialVideosById = {};
 const initialFavoriteMovies = [];
 const initialPath = "/";
 
@@ -86,23 +98,23 @@ const topRatedListData = (state = initialMovieListData, action) => {
   }
 }
 
-
 const moviesById = (state = initialMoviesById, action) => {
   switch (action.type) {
-    case FETCH_POPULAR_LIST_SUCCESS:
+    case FETCH_MOVIE_DETAIL_SUCCESS:
       var newState = {...state};
-      var list = action.payload.results;
-      for(var i = 0; i < list.length; i++) {
-        newState[list[i].id] = list[i]
-      };
-      return newState;
-    case FETCH_TOP_RATED_LIST_SUCCESS:
+      newState[action.payload.id] = action.payload;
+      return newState
+    default:
+      return state;
+  }
+}
+
+const videosById = (state = initialVideosById, action) => {
+  switch (action.type) {
+    case FETCH_MOVIE_VIDEOS_SUCCESS:
       var newState = {...state};
-      var list = action.payload.results;
-      for(let i = 0; i < list.length; i++) {
-        newState[list[i].id] = list[i]
-      };
-      return newState;
+      newState[action.payload.id] = action.payload.results;
+      return newState
     default:
       return state;
   }
@@ -124,6 +136,33 @@ const movieDetailData = (state = initialDetailData, action) => {
         error: action.error,
       };
     case FETCH_MOVIE_DETAIL_SUCCESS:
+      return {
+        fetching: false, 
+        fetched: true, 
+        error: null,
+        payload: action.payload,
+      };
+    default:
+      return state;
+  }
+}
+
+const movieVideosData = (state = initialVideosData, action) => {
+  switch (action.type) {
+    case FETCH_MOVIE_VIDEOS_STARTED:
+      return {
+        fetching: true,
+        fetched: false, 
+        error: null,
+        payload: null
+      };
+    case FETCH_MOVIE_VIDEOS_ERROR:
+      return {
+        ...state,
+        fetching: false, 
+        error: action.error,
+      };
+    case FETCH_MOVIE_VIDEOS_SUCCESS:
       return {
         fetching: false, 
         fetched: true, 
@@ -166,7 +205,9 @@ const reducer = combineReducers({
   popularListData,
   topRatedListData,
   movieDetailData,
+  movieVideosData,
   moviesById,
+  videosById,
   favoriteMovies,
   menuIsHidden,
   storedMovieListPath

@@ -11,30 +11,64 @@ import "./MovieDetail.scss";
 class MovieDetail extends React.Component {
   constructor(props) {
     super(props)
-    this.getMoviesById = this.getMoviesById.bind(this);
+    this.getDetail = this.getDetail.bind(this);
+    this.getVideos = this.getVideos.bind(this);
   }
 
   componentWillMount() {
-    if (!this.getMoviesById()) {
-      this.props.onFetchMovieDetail(this.props.match.params.id);
+    const id = this.props.match.params.id
+    if (!this.getDetail()) {
+      this.props.onFetchMovieDetail(id);
+    } 
+    if (!this.getVideos()) {
+      this.props.onFetchMovieDetail(id);
     } 
   }
   
-  getMoviesById() {
-    return this.props.moviesById[this.props.match.params.id];
+  getDetail() {
+    const id = this.props.match.params.id
+    const movieById = this.props.moviesById[id]
+    if (movieById) {
+      return movieById;
+    } 
+    else if (this.props.movieDetailData.fetched && this.props.movieDetailData.payload.id === id) {
+      return this.props.movieDetailData.payload;
+    } 
+    else {
+      return null;
+    };
+  }
+
+  getVideos() {
+    const id = this.props.match.params.id
+    const videosById = this.props.videosById[id]
+    if (videosById) {
+      return videosById;
+    } 
+    else if (this.props.movieVideosData.fetched && this.props.movieVideosData.payload.id === id) {
+      return this.props.movieVideosData.payload.results;
+    } 
+    else {
+      return null;
+    };
   }
   
   render() {
-    const data = 
-      this.getMoviesById() ? this.getMoviesById()
-      : this.props.fetched ? this.props.movieDetail
-      : null;
+    const data = this.getDetail()
+    const videosById = this.getVideos()
+
+    const trailers = []
+    if (videosById) {
+      videosById.map((video, i) => {
+        trailers.push(<Trailer key={i} video_name={video.name} video_key={video.key} />)
+      });
+    };
 
     const content = 
       this.props.fetching ? <Spinner />
       : this.props.error ? this.props.error
       : <h1>Nothin to display</h1>;
-
+    
     if (data) {
       return (
         <div className="MovieDetail" data-test="MovieDetail">
@@ -62,9 +96,7 @@ class MovieDetail extends React.Component {
             <div className="overview">{data.overview}</div>
             <hr/>
             <h2 className="trailersHeader">Trailers:</h2>
-            <Trailer />
-            <hr/>
-            <Trailer />
+            {trailers}
           </main>
         </div>
       )
