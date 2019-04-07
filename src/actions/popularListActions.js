@@ -9,8 +9,8 @@ import {
 } from "../constants/constants.js";
 
 
-export const fetchPopularList = (pathname) => {
-  const ENDPOINT = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}`
+export const fetchPopularList = (pathname, page = 1) => {
+  const ENDPOINT = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}&page=${page}`
 
   return (dispatch) => {
     dispatch(fetchPopularListStarted());

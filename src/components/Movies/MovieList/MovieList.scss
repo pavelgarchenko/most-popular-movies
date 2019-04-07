@@ -5,3 +5,18 @@
   justify-items: center;
   align-items: center;
 }
+
+button.load-more {
+  width: 112px;
+  height: 48px;
+  border: solid 1px #6fcac2;
+  background-color: #86e4db;
+  font-size: 12px;
+  text-align: center;
+  color: #757373;
+  text-transform: uppercase;
+  
+  &:active{
+    filter: saturate(150%);
+  }
+}
