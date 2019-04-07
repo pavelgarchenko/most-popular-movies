@@ -12,6 +12,8 @@ const mapStateToProps = state => {
     fetching: state.popularListData.fetching,
     fetched: state.popularListData.fetched,
     movies: state.popularListData.movies,
+    page: state.popularListData.page,
+    total_pages: state.popularListData.total_pages,
     error: state.popularListData.error,
   }
 }
@@ -20,6 +22,9 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchMovieList: (pathname) => {
       dispatch(fetchPopularList(pathname));
+    },
+    onFetchMovieListPage: (pathname, page) => {
+      dispatch(fetchPopularList(pathname, page));
     },
     onStoreMovieListPath: (pathname) => {
       dispatch(storeMovieListPath(pathname));

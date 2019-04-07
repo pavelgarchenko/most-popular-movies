@@ -21,6 +21,9 @@ const mapDispatchToProps = dispatch => {
     onFetchMovieList: (pathname) => {
       dispatch(fetchTopRatedList(pathname));
     },
+    onFetchMovieListPage: (pathname, page) => {
+      dispatch(fetchTopRatedList(pathname, page));
+    },
     onStoreMovieListPath: (pathname) => {
       dispatch(storeMovieListPath(pathname));
     }

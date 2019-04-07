@@ -26,6 +26,8 @@ const initialMovieListData = {
   fetched: false,
   movies: [],
   error: null,
+  page: null,
+  total_pages: null
 };
 
 const initialDetailData = {
@@ -51,9 +53,9 @@ const popularListData = (state = initialMovieListData, action) => {
   switch (action.type) {
     case FETCH_POPULAR_LIST_STARTED:
       return {
+        ...state,
         fetching: true,
         fetched: false,
-        movies: [],
         error: null
       };
     case FETCH_POPULAR_LIST_ERROR:
@@ -64,9 +66,13 @@ const popularListData = (state = initialMovieListData, action) => {
       };
     case FETCH_POPULAR_LIST_SUCCESS:
       return {
+        ...state,
         fetching: false,
         fetched: true,
-        movies: action.payload.results,
+        movies: [...state.movies, ...action.payload.results],
+        // movies: [...state.movies, action.payload.results],
+        page: action.payload.page,
+        total_pages: action.payload.total_pages,
       };
     default:
       return state;

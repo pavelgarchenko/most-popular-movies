@@ -36,6 +36,12 @@ class MovieList extends React.Component {
         <main className="content">
           {content}
         </main>
+        <hr/>
+
+        <button class="load-more" onClick={() => this.props.onFetchMovieListPage(this.props.match.url, this.props.page + 1)}>
+                Load more
+        </button>
+        <br/>
       </div>
     );
   }
