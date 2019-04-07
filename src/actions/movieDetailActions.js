@@ -1,19 +1,13 @@
 import axios from "axios";
-import { 
-  API_KEY,
-  MOVIEDB_API_BASE,
-  FETCH_MOVIE_DETAIL_STARTED,
-  FETCH_MOVIE_DETAIL_ERROR,
-  FETCH_MOVIE_DETAIL_SUCCESS,
-  ADD_TO_FAVORITES,
-} from "../constants/constants";
+import * as types from "../constants/types";
+import { API_KEY, MOVIEDB_API_BASE } from "../constants/constants";
 
 
 export const fetchMovieDetail = (id) => {
-  const ENDPOINT = `${MOVIEDB_API_BASE}/movie/${id}?api_key=${API_KEY}`
+  const endpoint = `${MOVIEDB_API_BASE}/movie/${id}?api_key=${API_KEY}`
   return (dispatch) => {
     dispatch(fetchMovieDetailStarted());
-    axios.get(ENDPOINT)
+    axios.get(endpoint)
       .then((response) => {
         setTimeout(() => {
           dispatch(fetchMovieDetailSuccess(response.data));
@@ -25,29 +19,29 @@ export const fetchMovieDetail = (id) => {
     }
 };
 
-export const fetchMovieDetailStarted = () => {
-  return {
-    type: FETCH_MOVIE_DETAIL_STARTED
-  }
-};
+export const fetchMovieDetailStarted = () => ({
+  // return {
+    type: types.FETCH_MOVIE_DETAIL_STARTED
+  // }
+});
 
 export const fetchMovieDetailSuccess = (payload) => {
   return {
-    type: FETCH_MOVIE_DETAIL_SUCCESS,
+    type: types.FETCH_MOVIE_DETAIL_SUCCESS,
     payload: payload
   }
 };
 
 export const fetchMovieDetailFailure = (error) => {
   return {
-    type: FETCH_MOVIE_DETAIL_ERROR,
+    type: types.FETCH_MOVIE_DETAIL_ERROR,
     error: error
   }
 };
 
 export const addToFavorites = (id) => {
   return {
-    type: ADD_TO_FAVORITES,
+    type: types.ADD_TO_FAVORITES,
     id: id,
   }
 };

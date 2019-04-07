@@ -1,18 +1,13 @@
 import axios from "axios";
-import { 
-  API_KEY,
-  MOVIEDB_API_BASE,
-  FETCH_MOVIE_VIDEOS_STARTED,
-  FETCH_MOVIE_VIDEOS_ERROR,
-  FETCH_MOVIE_VIDEOS_SUCCESS,
-} from "../constants/constants";
+import * as types from "../constants/types";
+import { API_KEY, MOVIEDB_API_BASE } from "../constants/constants";
 
 
 export const fetchMovieVideos = (id) => {
-  const ENDPOINT = `${MOVIEDB_API_BASE}/movie/${id}/videos?api_key=${API_KEY}`
+  const endpoint = `${MOVIEDB_API_BASE}/movie/${id}/videos?api_key=${API_KEY}`
   return (dispatch) => {
     dispatch(fetchMovieVideosStarted());
-    axios.get(ENDPOINT)
+    axios.get(endpoint)
       .then((response) => {
         setTimeout(() => {
           dispatch(fetchMovieVideosSuccess(response.data));
@@ -26,20 +21,20 @@ export const fetchMovieVideos = (id) => {
 
 export const fetchMovieVideosStarted = () => {
   return {
-    type: FETCH_MOVIE_VIDEOS_STARTED
+    type: types.FETCH_MOVIE_VIDEOS_STARTED
   }
 };
 
 export const fetchMovieVideosSuccess = (payload) => {
   return {
-    type: FETCH_MOVIE_VIDEOS_SUCCESS,
+    type: types.FETCH_MOVIE_VIDEOS_SUCCESS,
     payload: payload
   }
 };
 
 export const fetchMovieVideosFailure = (error) => {
   return {
-    type: FETCH_MOVIE_VIDEOS_ERROR,
+    type: types.FETCH_MOVIE_VIDEOS_ERROR,
     error: error
   }
 };

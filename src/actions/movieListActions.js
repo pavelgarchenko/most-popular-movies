@@ -1,6 +1,4 @@
-import { 
-  STORE_MOVIE_LIST_PATH,
-} from "../constants/constants.js";
+import { STORE_MOVIE_LIST_PATH } from "../constants/types";
 
 
 export const storeMovieListPath = (pathname) => {

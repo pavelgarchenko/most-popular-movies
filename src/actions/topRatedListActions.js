@@ -1,20 +1,15 @@
 
 import axios from "axios";
-import { 
-  API_KEY,
-  MOVIEDB_API_BASE,
-  FETCH_TOP_RATED_LIST_STARTED,
-  FETCH_TOP_RATED_LIST_ERROR,
-  FETCH_TOP_RATED_LIST_SUCCESS,
-} from "../constants/constants.js";
+import * as types from "../constants/types";
+import { API_KEY, MOVIEDB_API_BASE } from "../constants/constants";
 
 
 export const fetchTopRatedList = (pathname) => {
-  const ENDPOINT = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}`
+  const endpoint = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}`
 
   return (dispatch) => {
     dispatch(fetchTopRatedListStarted());
-    axios.get(ENDPOINT)
+    axios.get(endpoint)
       .then((response) => {
         setTimeout(() => {
           dispatch(fetchTopRatedListSuccess(response.data));
@@ -28,20 +23,20 @@ export const fetchTopRatedList = (pathname) => {
 
 export const fetchTopRatedListStarted = () => {
  return {
-   type: FETCH_TOP_RATED_LIST_STARTED
+   type: types.FETCH_TOP_RATED_LIST_STARTED
  }
 };
 
 export const fetchTopRatedListSuccess = (payload) => {
   return {
-    type: FETCH_TOP_RATED_LIST_SUCCESS,
+    type: types.FETCH_TOP_RATED_LIST_SUCCESS,
     payload: payload
   }
 };
 
 export const fetchTopRatedListFailure = (error) => {
   return {
-    type: FETCH_TOP_RATED_LIST_ERROR,
+    type: types.FETCH_TOP_RATED_LIST_ERROR,
     error: error
   }
 };
