@@ -1,6 +1,9 @@
+
 # Description
 
 Most of us can relate to kicking back on the couch and enjoying a movie with friends and family. This app allows users to discover the most popular movies playing as well as top rated movies of all times.
+
+### [Demo](https://mostpopularmovies.herokuapp.com)
 
 # Prerequisites
 
