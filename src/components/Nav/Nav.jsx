@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Nav.scss";
 
 const Nav = (props) => {
-  const hidden = props.menuIsHidden ? "hidden" : null
+  const hidden = props.menuHiddenState ? "hidden" : null
   const arrow = props.arrowBack
-    ? <Link to={props.storedMovieListPath}>
+    ? <Link to={props.movieListPath}>
         <FontAwesomeIcon icon={faArrowLeft} className="arrow"/>
       </Link>
     : null

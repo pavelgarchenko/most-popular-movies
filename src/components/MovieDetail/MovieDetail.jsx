@@ -111,5 +111,5 @@ class MovieDetail extends React.Component {
     }
   }
 }
-    
+
 export default MovieDetail;

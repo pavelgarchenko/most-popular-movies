@@ -5,8 +5,8 @@ import { toggleMenu } from "../../actions/navActions";
 
 const mapStateToProps = state => {
   return {
-    menuIsHidden: state.menuIsHidden,
-    storedMovieListPath: state.storedMovieListPath,
+    menuHiddenState: state.menuHiddenState,
+    movieListPath: state.movieListPath,
   }
 }
 
