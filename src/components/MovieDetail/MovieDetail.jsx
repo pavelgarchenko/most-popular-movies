@@ -1,9 +1,9 @@
 import React from "react";
 
-import NavContainer from "../../Nav/NavContainer";
-import Spinner from '../../Spinner/Spinner';
-import Trailer from "../../Trailer/Trailer";
-import Picture from "../../Picture/Picture"
+import NavContainer from "../Nav/NavContainer";
+import Spinner from "../Spinner/Spinner";
+import Trailer from "../Trailer/Trailer";
+import Picture from "../Picture/Picture";
 
 import "./MovieDetail.scss";
 

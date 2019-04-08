@@ -1,8 +1,8 @@
 import React from "react";
 
 import MovieListItem from "./MovieListItem/MovieListItem";
-import NavContainer from "../../Nav/NavContainer";
-import Spinner from '../../Spinner/Spinner';
+import NavContainer from "../Nav/NavContainer";
+import Spinner from "../Spinner/Spinner";
 
 import "./MovieList.scss";
 
