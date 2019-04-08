@@ -17,15 +17,10 @@ class MovieList extends React.Component {
   }
   
   render() {
-    const movies = []
-    if (this.props.fetched) {
-      this.props.movies.map((data, i) => {
-        movies.push(<MovieListItem key={i} id={data.id} poster_path={data.poster_path}/>)
-      });
-    }
-
     const content = 
-      movies.length > 0 ? movies
+      this.props.fetched ? this.props.movies.map((data, i) => {
+        return <MovieListItem key={i} id={data.id} poster_path={data.poster_path}/>
+      })
       : this.props.fetching ? <Spinner />
       : this.props.error ? this.props.error
       : "Nothing is fetched"

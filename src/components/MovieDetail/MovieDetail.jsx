@@ -55,14 +55,6 @@ class MovieDetail extends React.Component {
   
   render() {
     const data = this.getDetail()
-    const videosById = this.getVideos()
-
-    const trailers = []
-    if (videosById) {
-      videosById.map((video, i) => {
-        trailers.push(<Trailer key={i} video_name={video.name} video_key={video.key} />)
-      });
-    };
 
     const content = 
       this.props.fetching ? <Spinner />
@@ -96,7 +88,11 @@ class MovieDetail extends React.Component {
             <div className="overview">{data.overview}</div>
             <hr/>
             <h2 className="trailersHeader">Trailer:</h2>
-            {trailers}
+            {
+              this.getVideos() ? this.getVideos().map((video, i) => {
+                return <Trailer key={i} video_name={video.name} video_key={video.key} />
+              }) : ''
+            }
           </main>
         </div>
       )
