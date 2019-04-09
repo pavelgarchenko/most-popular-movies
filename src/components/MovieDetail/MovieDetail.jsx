@@ -15,7 +15,7 @@ class MovieDetail extends React.Component {
     this.getVideos = this.getVideos.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const id = this.props.match.params.id
     if (!this.getDetail()) {
       this.props.onFetchMovieDetail(id);

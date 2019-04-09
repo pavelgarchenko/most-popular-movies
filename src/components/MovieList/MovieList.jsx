@@ -9,7 +9,7 @@ import "./MovieList.scss";
 
 class MovieList extends React.Component {
   
-  componentWillMount() {
+  componentDidMount() {
     this.props.onStoreMovieListPath(this.props.match.url);
     if (!this.props.fetched) {
       this.props.onFetchMovieList(this.props.match.url);  
