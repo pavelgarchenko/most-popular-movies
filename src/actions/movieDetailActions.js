@@ -11,7 +11,7 @@ export const fetchMovieDetail = (id) => {
       .then((response) => {
         setTimeout(() => {
           dispatch(fetchMovieDetailSuccess(response.data));
-        }, 5000);
+        }, 1000);
       })
       .catch((error) => {
         dispatch(fetchMovieDetailFailure(error.message));
