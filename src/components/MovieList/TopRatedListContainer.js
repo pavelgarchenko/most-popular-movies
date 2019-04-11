@@ -12,14 +12,20 @@ const mapStateToProps = state => {
     fetching: state.topRatedListData.fetching,
     fetched: state.topRatedListData.fetched,
     movies: state.topRatedListData.movies,
+    page: state.topRatedListData.page,
+    total_pages: state.topRatedListData.total_pages,
     error: state.topRatedListData.error,
   }
 }
+
 
 const mapDispatchToProps = dispatch => {
   return {
     onFetchMovieList: (pathname) => {
       dispatch(fetchTopRatedList(pathname));
+    },
+    onLoadMore: (pathname, page) => {
+      dispatch(fetchTopRatedList(pathname, page));
     },
     onStoreMovieListPath: (pathname) => {
       dispatch(storeMovieListPath(pathname));
