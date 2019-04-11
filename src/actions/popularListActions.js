@@ -4,8 +4,8 @@ import * as types from "../constants/types";
 import { API_KEY, MOVIEDB_API_BASE } from "../constants/constants";
 
 
-export const fetchPopularList = (pathname) => {
-  const endpoint = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}`
+export const fetchPopularList = (pathname, page = 1) => {
+  const endpoint = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}&page=${page}`
 
   return (dispatch) => {
     dispatch(fetchPopularListStarted());
@@ -13,7 +13,7 @@ export const fetchPopularList = (pathname) => {
       .then((response) => {
         setTimeout(() => {
           dispatch(fetchPopularListSuccess(response.data));
-        }, 5000);
+        }, 1000);
       })
       .catch((error) => {
         dispatch(fetchPopularListFailure(error.message));

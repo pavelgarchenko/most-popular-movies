@@ -4,8 +4,8 @@ import * as types from "../constants/types";
 import { API_KEY, MOVIEDB_API_BASE } from "../constants/constants";
 
 
-export const fetchTopRatedList = (pathname) => {
-  const endpoint = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}`
+export const fetchTopRatedList = (pathname, page = 1) => {
+  const endpoint = `${MOVIEDB_API_BASE}${pathname}?api_key=${API_KEY}&page=${page}`
 
   return (dispatch) => {
     dispatch(fetchTopRatedListStarted());
@@ -13,7 +13,7 @@ export const fetchTopRatedList = (pathname) => {
       .then((response) => {
         setTimeout(() => {
           dispatch(fetchTopRatedListSuccess(response.data));
-        }, 5000);
+        }, 1000);
       })
       .catch((error) => {
         dispatch(fetchTopRatedListFailure(error.message));
