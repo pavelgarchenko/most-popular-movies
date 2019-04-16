@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 
 import MovieDetail from "./MovieDetail";
-import { fetchMovieDetail, addToFavorites } from "../../actions/movieDetailActions";
+import { fetchMovieDetail, addToFavorites, removeFromFavorites } from "../../actions/movieDetailActions";
 import { fetchMovieVideos } from "../../actions/movieVideosActions";
 import { PAGE_TITLES } from "../../constants/constants"
 
@@ -28,6 +28,9 @@ const mapDispatchToProps = dispatch => {
     },
     onAddToFavorites: (id) => {
       dispatch(addToFavorites(id));
+    },
+    onRemoveFromFavorites: (id) => {
+      dispatch(removeFromFavorites(id));
     }
   }
 }

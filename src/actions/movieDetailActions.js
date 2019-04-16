@@ -45,3 +45,10 @@ export const addToFavorites = (id) => {
     id: id,
   }
 };
+
+export const removeFromFavorites = (id) => {
+  return {
+    type: types.REMOVE_FROM_FAVORITES,
+    id: id,
+  }
+};

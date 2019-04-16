@@ -60,7 +60,7 @@ class MovieDetail extends React.Component {
       this.props.fetching ? <Spinner />
       : this.props.error ? this.props.error
       : <h1>Nothin to display</h1>;
-    
+
     if (data) {
       return (
         <div className="MovieDetail" data-test="MovieDetail">
@@ -77,12 +77,22 @@ class MovieDetail extends React.Component {
                 <span className="releaseDate">{data.release_date.split('-')[0]}</span>
                 <span className="movieLength">{data.runtime ? data.runtime + " min" : ''}</span>
                 <span className="voteAverage">{data.vote_average}/10</span>
-                <button 
-                  className="favorite" 
-                  onClick={() => this.props.onAddToFavorites(data.id)}
-                >
-                  Mark as favorite
-                </button>
+                {
+                  this.props.favoriteMovies.indexOf(data.id) === -1 ?
+                    <button 
+                      className="favorite favorite--add" 
+                      onClick={() => this.props.onAddToFavorites(data.id)}
+                    >
+                      Mark as favorite
+                    </button>
+                    :
+                    <button 
+                      className="favorite favorite--remove" 
+                      onClick={() => this.props.onRemoveFromFavorites(data.id)}
+                    >
+                      Remove from favorites
+                    </button>
+                }
               </div>
             </div>
             <div className="overview">{data.overview}</div>

@@ -57,14 +57,24 @@
       width: 112px;
       height: 48px;
       border: solid 1px #6fcac2;
-      background-color: #86e4db;
       font-size: 12px;
       text-align: center;
-      color: #757373;
       text-transform: uppercase;
+      transition: 0.4s;
 
       &:active{
         filter: saturate(150%);
+      }
+
+      &--add{
+        background-color: #86e4db;
+        color: #757373;
+      }
+
+      &--remove{
+        background-color: #e25d7a;
+        border-color: #e25d7a;
+        color: #ffffff;
       }
     }
 
