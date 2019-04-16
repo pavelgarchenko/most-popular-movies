@@ -15,6 +15,7 @@ const mapStateToProps = state => {
     page: state.popularListData.page,
     total_pages: state.popularListData.total_pages,
     error: state.popularListData.error,
+    favoriteMovies: state.favoriteMovies,
   }
 }
 

@@ -27,7 +27,6 @@ class MovieList extends React.Component {
   }
   
   handleScroll() {
-    console.log('Scrolling');
     if (this.props.fetching) return 
     if (this.props.page === this.props.total_pages) return 
 
@@ -48,7 +47,8 @@ class MovieList extends React.Component {
   render() {
     const content = 
       this.props.fetched ? this.props.movies.map((data, i) => {
-        return <MovieListItem key={i} id={data.id} poster_path={data.poster_path}/>
+        const isFavorite = this.props.favoriteMovies.indexOf(data.id) > -1
+        return <MovieListItem key={i} id={data.id} isFavorite={isFavorite} poster_path={data.poster_path}/>
       })
       : this.props.error ? <h1>this.props.error</h1>
       : null
@@ -58,8 +58,8 @@ class MovieList extends React.Component {
         <NavContainer title={this.props.pageTitle} />
         <main className="content">
           {content}
-          {this.props.fetching ? <Spinner /> : null}
         </main>
+        {this.props.fetching ? <Spinner /> : null}
       </div>
     );
   }

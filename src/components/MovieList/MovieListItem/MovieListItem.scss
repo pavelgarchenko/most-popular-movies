@@ -1,6 +1,14 @@
+.MovieListItem {
+  display: flex;
+  flex-flow: column nowrap; 
+}
+
 @media screen and (orientation: portrait) {
   .MovieListItem {
-    height: 75vw;
+    a {
+      height: 75vw;
+      width: 50vw;
+    }
     
     img {
       width: 50vw;
@@ -10,10 +18,24 @@
 
 @media screen and (orientation: landscape) {
   .MovieListItem {
-    height: 37vw;
+    a {
+      height: 37vw;
+      width: 25vw;
+    }
 
     img {
       width: 25vw;
     }
   }
+}
+
+.star {
+  font-size: 30px;
+  color: #ffe300;
+  margin-left: 20px;
+}
+
+.movie-desc {
+  padding: 15px 10px;
+  height: 30px;
 }
