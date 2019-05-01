@@ -11,9 +11,7 @@ export const fetchTopRatedList = (pathname, page = 1) => {
     dispatch(fetchTopRatedListStarted());
     axios.get(endpoint)
       .then((response) => {
-        setTimeout(() => {
-          dispatch(fetchTopRatedListSuccess(response.data));
-        }, 1000);
+        dispatch(fetchTopRatedListSuccess(response.data));
       })
       .catch((error) => {
         dispatch(fetchTopRatedListFailure(error.message));

@@ -9,9 +9,7 @@ export const fetchMovieVideos = (id) => {
     dispatch(fetchMovieVideosStarted());
     axios.get(endpoint)
       .then((response) => {
-        setTimeout(() => {
-          dispatch(fetchMovieVideosSuccess(response.data));
-        }, 1000);
+        dispatch(fetchMovieVideosSuccess(response.data));
       })
       .catch((error) => {
         dispatch(fetchMovieVideosFailure(error.message));

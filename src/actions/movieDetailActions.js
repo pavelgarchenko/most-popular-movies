@@ -9,9 +9,7 @@ export const fetchMovieDetail = (id) => {
     dispatch(fetchMovieDetailStarted());
     axios.get(endpoint)
       .then((response) => {
-        setTimeout(() => {
-          dispatch(fetchMovieDetailSuccess(response.data));
-        }, 1000);
+        dispatch(fetchMovieDetailSuccess(response.data));
       })
       .catch((error) => {
         dispatch(fetchMovieDetailFailure(error.message));

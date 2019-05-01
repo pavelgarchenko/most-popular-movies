@@ -11,9 +11,7 @@ export const fetchPopularList = (pathname, page = 1) => {
     dispatch(fetchPopularListStarted());
     axios.get(endpoint)
       .then((response) => {
-        setTimeout(() => {
-          dispatch(fetchPopularListSuccess(response.data));
-        }, 1000);
+        dispatch(fetchPopularListSuccess(response.data));
       })
       .catch((error) => {
         dispatch(fetchPopularListFailure(error.message));
